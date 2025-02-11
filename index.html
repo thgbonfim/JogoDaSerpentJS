@@ -3,41 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo da Cobrinha</title>
+  <title>Jogo de Zumbi</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    #gameContainer {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #8f8585;
-      margin: 0;
-      color: white;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
     }
-    canvas {
-      border: 2px solid white;
-      display: none;  /* Inicialmente o canvas ficará escondido */
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
+    #difficultySelection {
+      position: absolute;
+      top: 20px;
+      left: 20px;
       color: white;
-      border: none;
-      cursor: pointer;
       font-size: 18px;
-      border-radius: 5px;
     }
-    button:hover {
-      background-color: #45a049;
+
+    #difficultySelection select,
+    #difficultySelection button {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    #gameCanvas {
+      border: 2px solid black;
+    }
+
+    #rankDisplay {
+      font-size: 20px;
+      color: white;
+      background-color: #333;
+      padding: 10px;
+      margin-left: 20px;
+      width: 200px;
+    }
+    
+    #startBtn, #restartBtn {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #gameOverMessage {
+      font-size: 30px;
+      color: red;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Jogo da Cobrinha</h1>
-  <button id="startBtn">Start</button>
-  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  <div id="gameContainer">
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="rankDisplay">
+      <p><strong>Ranking</strong></p>
+      <p id="rankText">Rank: Nenhum</p>
+      <p id="livesText">Vidas: 3</p>
+      <p id="foodText">Comida: 0</p>
+      <p id="timeText">Tempo: 5</p>
+    </div>
+  </div>
+  <button id="startBtn">Iniciar Jogo</button>
+  <button id="restartBtn" style="display: none;">Reiniciar Jogo</button>
+  <div id="gameOverMessage">Você perdeu todas as vidas!</div>
+
   <script src="snak.js"></script>
 </body>
 </html>
